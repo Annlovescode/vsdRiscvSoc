@@ -1,12 +1,5 @@
 # 🛠️ Task 2: Prove Your Local RISC‑V Setup (Run, Disassemble, Decode)
 
-![Platform](https://img.shields.io/badge/Platform-VirtualBox-orange)
-![Toolchain](https://img.shields.io/badge/Toolchain-RISC--V-blue)
-![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
-![Environment](https://img.shields.io/badge/Environment-Ubuntu%2022.04-yellow)
-
----
-
 ## 🎯 Objective
 
 * ✅ Run 4 RISC‑V C programs locally using the installed toolchain and `spike pk`
@@ -39,7 +32,8 @@ export E=$(date +%s)
 
 ### 🔴 Output
 
-![Output_2.1](https://github.com/user-attachments/assets/d7a00437-74e4-4591-b7c3-5c4c911bc8a5)
+![Output_2.1](<img width="1221" height="481" alt="Screenshot from 2025-08-09 21-03-21" src="https://github.com/user-attachments/assets/8001096a-4e95-4a7c-adea-2490c2ce9520" />
+)
 
 ## 🧩 Task 2.2 - Create Common Header unique.h
 
