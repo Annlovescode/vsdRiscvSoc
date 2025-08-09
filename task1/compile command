@@ -1,0 +1,6 @@
+riscv64-unknown-elf-gcc -O2 -Wall -march=rv64imac -mabi=lp64 \
+-DUSERNAME="\"$(id -un)\"" \
+-DHOSTNAME="\"$(hostname -s)\"" \
+-DMACHINE_ID="\"$(cat /etc/machine-id | head -c 16)\"" \
+-DBUILD_UTC="\"$(date -u +'%Y-%m-%dT%H:%M:%SZ')\"" \
+-DBUILD_EPOCH=$(date +%s) unique_test.c -o unique_test
