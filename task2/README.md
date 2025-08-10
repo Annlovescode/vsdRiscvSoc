@@ -1,28 +1,23 @@
-# 🛠️ Task 2: Prove Your Local RISC‑V Setup (Run, Disassemble, Decode)
-
-![Platform](https://img.shields.io/badge/Platform-VirtualBox-orange)
-![Toolchain](https://img.shields.io/badge/Toolchain-RISC--V-blue)
-![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
-![Environment](https://img.shields.io/badge/Environment-Ubuntu%2022.04-yellow)
+# Task 2: Prove Your Local RISC‑V Setup (Run, Disassemble, Decode)
 
 ---
 
-## 🎯 Objective
+## Objective
 
-* ✅ Run 4 RISC‑V C programs locally using the installed toolchain and `spike pk`
-* ✅ Embed uniqueness via `username`, `hostname`, `machine ID`, and timestamps
-* ✅ Disassemble and decode main section of each binary
-* ✅ Decode RISC-V integer instructions manually
+*  Run 4 RISC‑V C programs locally using the installed toolchain and `spike pk`
+* Embed uniqueness via `username`, `hostname`, `machine ID`, and timestamps
+* Disassemble and decode main section of each binary
+* Decode RISC-V integer instructions manually
 
 ---
 
-## 🧩 Task 2.1 - Set Up Unique Identity Variables
+##  Task 2.1 - Set Up Unique Identity Variables
 
-### 🎯 Objective
+###  Objective
 
 Set identity variables in the Linux host shell so that each build is uniquely tied to the system.
 
-### ⚙️ Commands Used
+### ⚙ Commands Used
 
 ```bash
 export U=$(id -un)
@@ -32,7 +27,7 @@ export T=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 export E=$(date +%s)
 ```
 
-### ✅ Summary
+###  Summary
 
 * Stored username, hostname, machine ID, UTC time, and epoch time as environment variables
 * These values are passed as `#define` macros to every program
@@ -41,9 +36,9 @@ export E=$(date +%s)
 
 ![Output_2.1](https://github.com/Annlovescode/vsdRiscvSoc/blob/main/task2/screenshots/intro.png)
 
-## 🧩 Task 2.2 - Create Common Header unique.h
+##  Task 2.2 - Create Common Header unique.h
 
-### 🎯 Objective
+### Objective
 
 Create a reusable header for printing build/run metadata like user, host, machine ID, build time, etc.
 
@@ -110,13 +105,13 @@ Contains:
 * fnv1a64() hash function
 * uniq_print_header() function that prints a unique proof block
 
-### ✅ Summary
+### Summary
 
 * Generates ProofID (compile-unique) and RunID (per-execution unique)
 
-## 🧩 Task 2.3 - Program 1: factorial.c
+## Task 2.3 - Program 1: factorial.c
 
-### 🎯 Objective
+###  Objective
 
 Run a recursive factorial calculation while embedding unique metadata
 ### ⚙ Factorial Code
@@ -151,7 +146,7 @@ spike pk ./factorial
 ### 🔴 Output of spike
 ![Output_2.3](https://github.com/Annlovescode/vsdRiscvSoc/blob/main/task2/screenshots/fact_output.png)
 
-### 🧠 Assembly
+###  Assembly
 
 
 ```bash
@@ -165,12 +160,12 @@ bash
 ```
 riscv64-unknown-elf-objdump -d ./factorial | sed -n '/<main>:/,/^$/p' | tee factorial_main_objdump.txt
 ```
-### 🔴 Output
+###  Output
 ![Output_2.31](https://github.com/Annlovescode/vsdRiscvSoc/blob/main/task2/screenshots/fact_obj.png)
 
-## 🧩 Task 2.4 - Program 2: max\_array.c
+##  Task 2.4 - Program 2: max\_array.c
 
-### 🎯 Objective
+###  Objective
 
 Find the maximum in an array and print with proof header
 
@@ -188,15 +183,15 @@ return 0;
 ```
 (Repeat same steps as Task 2.3 for compile, run, assembly, and disassembly)
 
-### 🔴 Output of spike
+### Output of spike
 ![Output_2.4](https://github.com/Annlovescode/vsdRiscvSoc/blob/main/task2/screenshots/max_output.png)
 
 ### 🔴 Output 
 
 ![Output_2.4](https://github.com/Annlovescode/vsdRiscvSoc/blob/main/task2/screenshots/max_obj.png)
-## 🧩 Task 2.5 - Program 3: bitops.c
+##  Task 2.5 - Program 3: bitops.c
 
-### 🎯 Objective
+###  Objective
 
 Perform basic bitwise operations and show uniqueness
 
@@ -222,9 +217,9 @@ return 0;
 ![Output_2.5](https://github.com/Annlovescode/vsdRiscvSoc/blob/main/task2/screenshots/bitop_output.png)
 ### 🔴 Output 
 ![Output_2.5](https://github.com/Annlovescode/vsdRiscvSoc/blob/main/task2/screenshots/bitop_obj.png)
-## 🧩 Task 2.6 - Program 4: bubble\_sort.c
+##  Task 2.6 - Program 4: bubble\_sort.c
 
-### 🎯 Objective
+###  Objective
 
 Perform bubble sort and print sorted array with proof header
 
@@ -248,9 +243,9 @@ return 0;
 
 ### 🔴 Output 
 ![Output_2.6](https://github.com/Annlovescode/vsdRiscvSoc/blob/main/task2/screenshots/bubble_obj.png)
-## 🧩 Task 2.7 - Instruction Decoding
+##  Task 2.7 - Instruction Decoding
 
-### 🎯 Objective
+###  Objective
 
 Manually decode at least 5 RISC‑V integer instructions from .s or .objdump output.
 The detailed instruction decoding for all programs can be found here:  
